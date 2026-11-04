@@ -55,8 +55,7 @@ jobs:
             git worktree add --detach "$publish_dir" refs/remotes/origin/rule-set
           else
             git worktree add --detach "$publish_dir" HEAD
-            git -C "$publish_dir" checkout --orphan rule-set
-            git -C "$publish_dir" rm -r --ignore-unmatch .
+            git -C "$publish_dir" switch --orphan rule-set
           fi
           cp -a dist/. "$publish_dir/"
           git -C "$publish_dir" add --all
